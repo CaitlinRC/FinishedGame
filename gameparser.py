@@ -84,8 +84,12 @@ def normalise_input(user_input):
     """
     # Remove punctuation and convert to lower case
     no_punct = remove_punct(user_input).lower()
+
+    no_whitespace = no_punct.strip()
+
+    unfiltered_list = no_whitespace.split()
+
+    filtered_list = filter_words(unfiltered_list, skip_words)
     
 
-    #
-    # COMPLETE ME!
-    #
+    return filtered_list
