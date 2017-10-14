@@ -57,12 +57,10 @@ def print_room_items(room):
     Note: <BLANKLINE> here means that doctest should expect a blank line.
 
     """
-    items = room["items"]
+    items = room["items"] # FIX THIS
     itemList = []
     
-    for i in items:
-        temp = items[i]
-        itemList.append(temp)
+    itemList = items.keys()
     
     itemString = list_of_items(itemList)
     print("There is", itemString, "here.")
