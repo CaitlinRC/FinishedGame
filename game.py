@@ -24,7 +24,15 @@ def list_of_items(items):
     'money, a student handbook, laptop'
 
     """
-    pass
+    itemNames = ''
+    
+    for item in items:
+
+        itemNames = itemNames + item + ", "
+
+    itemNames = itemNames[:-2]
+
+    return itemNames
 
 
 def print_room_items(room):
