@@ -58,9 +58,7 @@ def print_room_items(room):
 
     """
     items = room["items"] # FIX THIS
-    itemList = []
-    
-    itemList = items.keys()
+    itemList = items
     
     itemString = list_of_items(itemList)
     print("There is", itemString, "here.")
