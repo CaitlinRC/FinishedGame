@@ -57,7 +57,11 @@ def print_room_items(room):
     Note: <BLANKLINE> here means that doctest should expect a blank line.
 
     """
-    pass
+    itemList = room["items"]
+    
+    itemString = list_of_items(itemList)
+    print("There is", itemString, "here.")
+    print()
 
 
 def print_inventory_items(items):
