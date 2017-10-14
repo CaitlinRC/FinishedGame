@@ -60,8 +60,8 @@ def print_room_items(room):
     items = room["items"]
     itemList = []
     
-    for item in items:
-        temp = items[item]
+    for i in items:
+        temp = items[i]
         itemList.append(temp)
     
     itemString = list_of_items(itemList)
