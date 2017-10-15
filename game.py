@@ -24,18 +24,17 @@ def list_of_items(items):
     'money, a student handbook, laptop'
 
     """
-
-    itemNames = ''
     
-    for i in range(0, len(items) - 1):
-
-        item = items[i]
-        item = str(item)
-        itemNames = itemNames + item + ", "
-
-    itemNames = itemNames[:-2]
-
-    return itemNames
+    itemString = ""
+    
+    for item in items:
+        itemString = itemString + ", " + item["name"]
+        itemString[:-2]
+        
+        # NB: does not acocunt for the first value (will start with a comma)
+        
+    itemString = itemString[2:]    
+    return itemString
 
 
 def print_room_items(room):
@@ -63,13 +62,7 @@ def print_room_items(room):
 
     if room["items"] != []:
 
-        itemList = []
-
-        for i in range(0, len(room["items"])):
-
-            itemList.append(room["items"][i]["name"])
-
-        itemsInRoom = list_of_items(itemList)
+        itemsInRoom = list_of_items(room["items"])
 
         print("There is", itemsInRoom, "here.")    
         print()
@@ -86,15 +79,9 @@ def print_inventory_items(items):
 
     """
 
-    itemList = []
+    itemString = list_of_items(items)
     
-    for i in range(0, len(inventory)):
-        
-        itemList.append(inventory[i]["name"])
-
-    itemsInInventory = list_of_items(itemList)
-    
-    print("You have", itemsInInventory + ".")
+    print("You have " + itemString + ".")
     print()
 
 
