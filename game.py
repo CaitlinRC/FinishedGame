@@ -25,22 +25,13 @@ def list_of_items(items):
 
     """
 
-    if type(items) == dict:
-
-        itemList = []
-
-        for i in items:
-
-            itemList = itemList.append(items["name"][i])
-
-    else:
-        itemList = []
-        itemList = items
-            
     itemNames = ''
     
-    for item in itemList:
+    for i in range(0, len(items)):
 
+        item = items[i]
+        item = str(item)
+        print(type(item))
         itemNames = itemNames + item + ", "
 
     itemNames = itemNames[:-2]
