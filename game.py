@@ -82,7 +82,17 @@ def print_inventory_items(items):
     <BLANKLINE>
 
     """
-    pass
+
+    itemList = []
+    
+    for i in range(0, len(inventory)):
+        
+        itemList.append(inventory[i])
+
+    itemsInInventory = list_of_items(itemList)
+    
+    print("You have", itemsInInventory, ".")
+    print()
 
 
 def print_room(room):
