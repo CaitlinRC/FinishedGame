@@ -32,6 +32,10 @@ def list_of_items(items):
         for i in items:
 
             itemList.append(items[i]["name"])
+
+    else:
+        itemList = []
+        itemList = items
             
     itemNames = ''
     
