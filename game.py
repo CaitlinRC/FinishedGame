@@ -91,7 +91,7 @@ def print_inventory_items(items):
 
     itemsInInventory = list_of_items(itemList)
     
-    print("You have", itemsInInventory, ".")
+    print("You have", itemsInInventory + ".")
     print()
 
 
