@@ -64,7 +64,7 @@ def print_room_items(room):
 
         for i in range(0, len(room["items"])):
 
-            itemList.append(room["items"]["name"][i])
+            itemList.append(room["items"][i]["name"])
 
         itemsInRoom = list_of_items(itemList)
 
