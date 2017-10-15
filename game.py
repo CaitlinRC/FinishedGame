@@ -87,7 +87,7 @@ def print_inventory_items(items):
     
     for i in range(0, len(inventory)):
         
-        itemList.append(inventory[i])
+        itemList.append(inventory[i]["name"])
 
     itemsInInventory = list_of_items(itemList)
     
