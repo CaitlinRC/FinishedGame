@@ -27,11 +27,10 @@ def list_of_items(items):
 
     itemNames = ''
     
-    for i in range(0, len(items)):
+    for i in range(0, len(items) - 1):
 
         item = items[i]
         item = str(item)
-        print(type(item))
         itemNames = itemNames + item + ", "
 
     itemNames = itemNames[:-2]
