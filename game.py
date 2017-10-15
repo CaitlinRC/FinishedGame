@@ -60,9 +60,15 @@ def print_room_items(room):
 
     if room["items"] != []:
 
-        itemList = list_of_items(room["items"])
+        itemList = []
 
-        print("There is ", itemList, "here.")    
+        for i in range(0, len(room["items"])):
+
+            itemList.append(room["items"][i])
+
+        itemsInRoom = list_of_items(itemList)
+
+        print("There is ", itemsInRoom, "here.")    
         print()
 
 
