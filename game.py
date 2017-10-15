@@ -68,7 +68,7 @@ def print_room_items(room):
 
         itemsInRoom = list_of_items(itemList)
 
-        print("There is ", itemsInRoom, "here.")    
+        print("There is", itemsInRoom, "here.")    
         print()
 
 
