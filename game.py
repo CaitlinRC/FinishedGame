@@ -31,7 +31,7 @@ def list_of_items(items):
 
         for i in items:
 
-            itemList.append(items["name"][i])
+            itemList = itemList.append(items["name"][i])
 
     else:
         itemList = []
