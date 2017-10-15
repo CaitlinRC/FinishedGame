@@ -24,9 +24,18 @@ def list_of_items(items):
     'money, a student handbook, laptop'
 
     """
+
+    if type(items) == dict:
+
+        itemList = []
+
+        for i in items:
+
+            itemList.append(items[i]["name"])
+            
     itemNames = ''
     
-    for item in items:
+    for item in itemList:
 
         itemNames = itemNames + item + ", "
 
