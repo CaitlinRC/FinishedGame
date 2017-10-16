@@ -5,8 +5,6 @@ from player import *
 from items import *
 from gameparser import *
 
-
-
 def list_of_items(items):
     """This function takes a list of items (see items.py for the definition) and
     returns a comma-separated list of item names (as a string). For example:
@@ -211,6 +209,14 @@ def print_menu(exits, room_items, inv_items):
     #
     # COMPLETE ME!
     #
+    for item in room_items:
+
+        print("TAKE", item["id"].upper(), "to take", item["name"] + ".")
+
+    for item in inv_items:
+
+        print("DROP", item["id"].upper(), "to drop your", item["name"] + ".")
+        
     
     print("What do you want to do?")
 
@@ -240,7 +246,15 @@ def execute_go(direction):
     (and prints the name of the room into which the player is
     moving). Otherwise, it prints "You cannot go there."
     """
-    pass
+
+    global current_room
+    
+    if direction in current_room["exits"]:
+
+        current_room = rooms[current_room["exits"][direction]]
+ 
+    else:
+        print("You cannot go there.")
 
 
 def execute_take(item_id):
@@ -249,7 +263,26 @@ def execute_take(item_id):
     there is no such item in the room, this function prints
     "You cannot take that."
     """
-    pass
+
+    global inventory
+    global current_room
+    global inventory_mass
+
+    item = items[item_id]
+
+    if (item in current_room["items"]) and (inventory_mass <= 3) and (inventory_mass + item["mass"] <= 3):
+
+        inventory.append(item)
+        current_room["items"].remove(item)
+        inventory_mass += item["mass"]
+        
+    else:
+
+        if inventory_mass + item["mass"] >= 3:
+            print("You cannot carry more than 3kg! Please drop something.")
+
+        else:    
+            print("You cannot take that.")
     
 
 def execute_drop(item_id):
@@ -257,7 +290,20 @@ def execute_drop(item_id):
     player's inventory to list of items in the current room. However, if there is
     no such item in the inventory, this function prints "You cannot drop that."
     """
-    pass
+    global inventory
+    global current_room
+    global inventory_mass
+
+    item = items[item_id]
+    
+    if item in inventory:
+
+        inventory.remove(item)
+        current_room["items"].append(item)
+        inventory_mass -= item["mass"] 
+
+    else:
+        print("You cannot drop that.")
     
 
 def execute_command(command):
@@ -346,6 +392,15 @@ def main():
         # Execute the player's command
         execute_command(command)
 
+        numberOfItemsInRoom = 0
+
+        for item in current_room["items"]:
+
+            numberOfItemsInRoom += 1
+
+        if numberOfItemsInRoom == 6:
+            print("You win!")
+            break
 
 
 # Are we being run as a script? If so, run main().

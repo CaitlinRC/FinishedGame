@@ -27,12 +27,15 @@ def filter_words(words, skip_words):
     ['go', 'passage', 'south']
 
     """
+
+    filteredWords = []
+    
     for word in words:
 
         if word not in skip_words:
-            words.remove(word)
+            filteredWords.append(word)
 
-    return words
+    return filteredWords
     
 
     
